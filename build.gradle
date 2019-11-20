@@ -133,14 +133,19 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven { url 'https://maven.fabric.io/public' }
+        maven{ url '/usr/local/google/home/amrmahmoud/work/studio-master-dev/out/repo'}
+        maven{ url '/usr/local/google/home/amrmahmoud/work/studio-master-dev/prebuilts/tools/common/m2/repository'}
         maven { url "https://plugins.gradle.org/m2/" }
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.0'
+        classpath 'com.android.tools.build:gradle:4.0.0-dev'
+        classpath 'io.fabric.tools:gradle:1.31.0'
         classpath 'com.google.gms:google-services:4.2.0'
         classpath 'com.google.android.gms:oss-licenses-plugin:0.9.4'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin"
+        classpath "io.realm:realm-gradle-plugin:5.0.0"
         classpath "com.diffplug.spotless:spotless-plugin-gradle:$spotless"
     }
 }
@@ -171,6 +176,9 @@ subprojects {
         google()
         mavenCentral()
         jcenter()
+        maven{ url '/usr/local/google/home/amrmahmoud/work/studio-master-dev/out/repo'}
+        maven { url 'https://maven.fabric.io/public' }
+        maven{ url '/usr/local/google/home/amrmahmoud/work/studio-master-dev/prebuilts/tools/common/m2/repository'}
         maven { url "https://jitpack.io" } // Needed for truetime
     }
 }
