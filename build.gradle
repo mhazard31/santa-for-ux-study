@@ -125,7 +125,7 @@ ext {
 }
 
 buildscript {
-    ext.kotlin = '1.3.11'
+    ext.kotlin = '1.3.60-eap-76'
     ext.spotless = '3.15.0'
     ext.ktlint = '0.28.0'
     ext.googlejavaformat = '1.6'
@@ -137,10 +137,11 @@ buildscript {
         maven{ url '/usr/local/google/home/amrmahmoud/work/studio-master-dev/out/repo'}
         maven{ url '/usr/local/google/home/amrmahmoud/work/studio-master-dev/prebuilts/tools/common/m2/repository'}
         maven { url "https://plugins.gradle.org/m2/" }
+        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.0.0-dev'
+        classpath 'com.android.tools.build:gradle:4.0.0-alpha04'
         classpath 'io.fabric.tools:gradle:1.31.0'
         classpath 'com.google.gms:google-services:4.2.0'
         classpath 'com.google.android.gms:oss-licenses-plugin:0.9.4'
@@ -180,6 +181,7 @@ subprojects {
         maven { url 'https://maven.fabric.io/public' }
         maven{ url '/usr/local/google/home/amrmahmoud/work/studio-master-dev/prebuilts/tools/common/m2/repository'}
         maven { url "https://jitpack.io" } // Needed for truetime
+        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
     }
 }
 

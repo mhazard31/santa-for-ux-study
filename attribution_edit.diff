@@ -1,0 +1,212 @@
+diff --git a/build.gradle b/build.gradle
+index 8bc648f..124c003 100644
+--- a/build.gradle
++++ b/build.gradle
+@@ -133,14 +133,19 @@ buildscript {
+     repositories {
+         google()
+         jcenter()
++        maven { url 'https://maven.fabric.io/public' }
++        maven{ url '/usr/local/google/home/amrmahmoud/work/studio-master-dev/out/repo'}
++        maven{ url '/usr/local/google/home/amrmahmoud/work/studio-master-dev/prebuilts/tools/common/m2/repository'}
+         maven { url "https://plugins.gradle.org/m2/" }
+     }
+ 
+     dependencies {
+-        classpath 'com.android.tools.build:gradle:3.3.0'
++        classpath 'com.android.tools.build:gradle:4.0.0-dev'
++        classpath 'io.fabric.tools:gradle:1.31.0'
+         classpath 'com.google.gms:google-services:4.2.0'
+         classpath 'com.google.android.gms:oss-licenses-plugin:0.9.4'
+         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin"
++        classpath "io.realm:realm-gradle-plugin:5.0.0"
+         classpath "com.diffplug.spotless:spotless-plugin-gradle:$spotless"
+     }
+ }
+@@ -171,6 +176,9 @@ subprojects {
+         google()
+         mavenCentral()
+         jcenter()
++        maven{ url '/usr/local/google/home/amrmahmoud/work/studio-master-dev/out/repo'}
++        maven { url 'https://maven.fabric.io/public' }
++        maven{ url '/usr/local/google/home/amrmahmoud/work/studio-master-dev/prebuilts/tools/common/m2/repository'}
+         maven { url "https://jitpack.io" } // Needed for truetime
+     }
+ }
+diff --git a/gradle.properties b/gradle.properties
+index 30b4b4f..e3b1f9d 100644
+--- a/gradle.properties
++++ b/gradle.properties
+@@ -30,12 +30,10 @@
+ org.gradle.daemon=true
+ org.gradle.configureondemand=true
+ org.gradle.parallel=true
+-org.gradle.caching=true
+ 
+ org.gradle.jvmargs=-Xmx6g -XX:MaxPermSize=1536m
+ 
+ # https://developer.android.com/studio/build/build-cache.html
+-android.enableBuildCache=true
+ android.enableR8=true
+ 
+ android.useAndroidX=true
+diff --git a/gradle/wrapper/gradle-wrapper.properties b/gradle/wrapper/gradle-wrapper.properties
+index acc2012..96a70ba 100644
+--- a/gradle/wrapper/gradle-wrapper.properties
++++ b/gradle/wrapper/gradle-wrapper.properties
+@@ -1,6 +1,6 @@
+-#Fri Jan 11 14:26:09 AEDT 2019
++#Wed Oct 16 13:04:49 BST 2019
+ distributionBase=GRADLE_USER_HOME
+ distributionPath=wrapper/dists
+ zipStoreBase=GRADLE_USER_HOME
+ zipStorePath=wrapper/dists
+-distributionUrl=https\://services.gradle.org/distributions/gradle-4.10.1-all.zip
++distributionUrl=https\://services.gradle.org/distributions/gradle-5.6.1-all.zip
+diff --git a/santa-tracker/build.gradle b/santa-tracker/build.gradle
+index 5caaa16..27bb5f4 100644
+--- a/santa-tracker/build.gradle
++++ b/santa-tracker/build.gradle
+@@ -154,4 +154,6 @@ dependencies {
+ if (project.file('google-services.json').exists()) {
+     apply plugin: 'com.google.gms.google-services'
+ }
+-apply plugin: 'com.google.android.gms.oss-licenses-plugin'
+\ No newline at end of file
++apply plugin: 'com.google.android.gms.oss-licenses-plugin'
++
++apply from: 'santa-tracker.gradle'
+\ No newline at end of file
+diff --git a/santa-tracker/google-services.json b/santa-tracker/google-services.json
+new file mode 100644
+index 0000000..e238acb
+--- /dev/null
++++ b/santa-tracker/google-services.json
+@@ -0,0 +1,73 @@
++{
++  "project_info": {
++    "project_number": "784990561541",
++    "firebase_url": "https://noel-baba.firebaseio.com",
++    "project_id": "noel-baba",
++    "storage_bucket": "noel-baba.appspot.com"
++  },
++  "client": [
++    {
++      "client_info": {
++        "mobilesdk_app_id": "1:784990561541:android:bfb08094eb3dc494",
++        "android_client_info": {
++          "package_name": "com.google.android.apps.santatracker"
++        }
++      },
++      "oauth_client": [
++        {
++          "client_id": "784990561541-iufollhsdu1ao64q63jsj81g5ofgpdf8.apps.googleusercontent.com",
++          "client_type": 3
++        }
++      ],
++      "api_key": [
++        {
++          "current_key": "AIzaSyADQ5l445B1aCHF0wxEQzBeinr53VnTRrc"
++        }
++      ],
++      "services": {
++        "analytics_service": {
++          "status": 1
++        },
++        "appinvite_service": {
++          "status": 1,
++          "other_platform_oauth_client": []
++        },
++        "ads_service": {
++          "status": 2
++        }
++      }
++    },
++    {
++      "client_info": {
++        "mobilesdk_app_id": "1:784990561541:android:8c1ac1ab7baf884e",
++        "android_client_info": {
++          "package_name": "com.google.android.apps.santatracker.debug"
++        }
++      },
++      "oauth_client": [
++        {
++          "client_id": "784990561541-iufollhsdu1ao64q63jsj81g5ofgpdf8.apps.googleusercontent.com",
++          "client_type": 3
++        }
++      ],
++      "api_key": [
++        {
++          "current_key": "AIzaSyADQ5l445B1aCHF0wxEQzBeinr53VnTRrc"
++        }
++      ],
++      "services": {
++        "analytics_service": {
++          "status": 1
++        },
++        "appinvite_service": {
++          "status": 1,
++          "other_platform_oauth_client": []
++        },
++        "ads_service": {
++          "status": 2
++        }
++      }
++    }
++  ],
++  "configuration_version": "1"
++}
+\ No newline at end of file
+diff --git a/santa-tracker/santa-tracker.gradle b/santa-tracker/santa-tracker.gradle
+new file mode 100644
+index 0000000..299683a
+--- /dev/null
++++ b/santa-tracker/santa-tracker.gradle
+@@ -0,0 +1,46 @@
++apply plugin: 'io.fabric'
++apply plugin: 'realm-android'
++
++class SlowPlugin implements Plugin<Project> {
++    void apply(Project project) {
++        // simulating heavy computations
++        Thread.sleep(2000)
++    }
++}
++apply plugin: SlowPlugin
++
++@CacheableTask
++abstract class GenerateExtraResources extends DefaultTask {
++    @InputDirectory
++    abstract DirectoryProperty getInputDir()
++
++    @OutputDirectory
++    abstract DirectoryProperty getOutputDir()
++
++    @TaskAction
++    def run() {
++        for (File f: getOutputDir().get().asFile.listFiles()) {
++            f.delete()
++        }
++    }
++}
++
++task generateExtraResources(type: GenerateExtraResources) {
++    inputDir = file("$buildDir/intermediates/res/merged/debug")
++    outputDir = file("$buildDir/intermediates/res/merged/debug")
++}
++
++dependencies {
++    implementation 'com.google.auto.value:auto-value-annotations:1.6.2'
++    annotationProcessor 'com.google.auto.value:auto-value:1.6.2'
++}
++
++afterEvaluate { project ->
++    android.applicationVariants.all { variant ->
++        def packageTask = tasks.getByPath("package${variant.name.capitalize()}")
++        generateExtraResources.dependsOn packageTask
++
++        def assembleTask = tasks.getByPath("assemble${variant.name.capitalize()}")
++        assembleTask.dependsOn generateExtraResources
++    }
++}
+\ No newline at end of file
