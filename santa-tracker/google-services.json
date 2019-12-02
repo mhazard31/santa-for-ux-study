@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "784990561541",
+    "firebase_url": "https://noel-baba.firebaseio.com",
+    "project_id": "noel-baba",
+    "storage_bucket": "noel-baba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784990561541:android:bfb08094eb3dc494",
+        "android_client_info": {
+          "package_name": "com.google.android.apps.santatracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "784990561541-iufollhsdu1ao64q63jsj81g5ofgpdf8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADQ5l445B1aCHF0wxEQzBeinr53VnTRrc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784990561541:android:8c1ac1ab7baf884e",
+        "android_client_info": {
+          "package_name": "com.google.android.apps.santatracker.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "784990561541-iufollhsdu1ao64q63jsj81g5ofgpdf8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADQ5l445B1aCHF0wxEQzBeinr53VnTRrc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
